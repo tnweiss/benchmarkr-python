@@ -1,29 +1,29 @@
-![](images/BenchmarkrCPP.svg)
+![](images/BenchmarkrPython.svg)
 
 ## Overview
 
-Set standards for your software. 
+Set standards for your software.
 
-This repository provides a benchmarking framework for the C++ language. Set standards, track progress, and aggregate 
-results in an ELK stack.
+This repository provides a benchmarking framework for Java. See [Benchmarkr CPP](https://github.com/tnweiss/Benchmarkr-cpp) 
+to get the binaries used to set up ELK indices and upload test results. 
 
 The goal of this project is to track **relative performance**, not absolute performance. No two runs, even on the same machine,
-will yield the same results. This project attempts to highlight significant trends and major anomalies by allowing 
+will yield the same results. This project attempts to highlight significant trends and major anomalies by allowing
 developers to constantly benchmark their software.
 
 The screenshot below shows the default dashboard that comes with this project. It provides basic information about
 which tests have outperformed expectations and which have underperformed.
 
-![](images/BenchmarkrDashboard.PNG)
+![](https://github.com/tnweiss/Benchmarkr-cpp/raw/master/images/BenchmarkrDashboard.PNG)
 
 The line graph, in the screenshot above, becomes more useful when you filter on a single test. In the screenshot below
 we filtered by `TestName : NormalizeDataTest` and this is what our line graph looked like...
 
-![](images/BenchmarkrDashboardLineGraph.PNG)
+![](https://github.com/tnweiss/Benchmarkr-cpp/raw/master/images/BenchmarkrDashboardLineGraph.PNG)
 
 And then our table, gave us some insight into individual results that could then be further filtered and organized.
 
-![](images/BenchmarkrDashboardTable.PNG)
+![](https://github.com/tnweiss/Benchmarkr-cpp/raw/master/images/BenchmarkrDashboardTable.PNG)
 
 ## Related Benchmarkr Projects
 
