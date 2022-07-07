@@ -56,21 +56,20 @@ def benchmark(lower_bound_s: Optional[int] = None, lower_bound_ms: Optional[int]
 
 
 def valid_file(filename: str, module_name: str) -> bool:
-    return filename.endswith('.py') and filename != '__init__.py' and \
+    return filename.endswith('benchmark.py') and \
         (module_name == '' or filename == module_name + '.py')
 
 
-def execute(directory: str = '.', package_name: str = '', module_name: str = '', method_name: str = '',
+def execute(directory: str = '.', package_name: Optional[str] = None, module_name: str = '', method_name: str = '',
             iterations: int = 1, console_type: str = 'System', record: bool = True, fail: bool = False) -> None:
 
     sys.path.append(directory)
 
-    for root, sub_folders, files in os.walk(os.path.join(directory, package_name)):
+    for root, sub_folders, files in os.walk(os.path.join(directory, package_name or '')):
         files[:] = [f for f in files if valid_file(f, module_name)]
 
         for file in files:
-            file_name = f'.{python_file_regex.match(file).group(1)}'
-            print(file_name)
+            file_name = f'{"." if package_name else ""}{python_file_regex.match(file).group(1)}'
             importlib.import_module(file_name, package_name)
 
     console = get_console(console_type)
@@ -83,7 +82,7 @@ def execute(directory: str = '.', package_name: str = '', module_name: str = '',
     for i in range(0, iterations):
         for test in [t for t in tests if t.matches(package_name, module_name, method_name)]:
             # print test name and expectations
-            console.print("{:40s} {:<20n} {:<20n} ".format(test.test_name(), test.lower_bound(), test.upper_bound()))
+            console.print("{:40s} {:<20s} {:<20s} ".format(test.test_name(), str(test.lower_bound()), str(test.upper_bound())))
             test_result = test.run()
             console.println("{:<20n}".format(test_result.duration()))
             test_results.add_result(test_result)

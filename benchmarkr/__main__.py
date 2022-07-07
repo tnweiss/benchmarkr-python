@@ -5,7 +5,7 @@ from benchmarkr.benchmarkr import execute
 
 parser = argparse.ArgumentParser(description="Run Benchmarkr Tests")
 parser.add_argument('directory', default='.', type=str, nargs='?')
-parser.add_argument('--package-name', default='', help='Name of the package to search for tests in', type=str)
+parser.add_argument('--package-name', default=None, help='Name of the package to search for tests in', type=str)
 parser.add_argument('--module-name', default='', help='Name of the module to search for tests in', type=str)
 parser.add_argument('--method-name', default='', help='Name of the method to run', type=str)
 parser.add_argument('--iterations', default=1, help='Number of times to run each test', type=int)

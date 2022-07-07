@@ -12,5 +12,6 @@ setup(
       author='Tyler Weiss',
       author_email='apps@tylerweiss.dev',
       url='https://github.com/tnweiss/benchmarkr-python',
-      packages=['benchmarkr']
+      packages=['benchmarkr'],
+      requires=[]
 )
